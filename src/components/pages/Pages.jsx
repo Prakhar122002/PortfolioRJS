@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from "../common/Footer";
 import { Header } from "../common/Header";
 import { Home } from "../home/Home";
@@ -12,19 +12,20 @@ import { Testimonials } from "./Testimonials";
 
 export const Pages = () => {
   return (
-    <Router>
-      <Header />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/services" component={Services} />
-        <Route exact path="/portfolio" component={Portfolio} />
-        <Route exact path="/testimonials" component={Testimonials} />
-        <Route exact path="/blog" component={Blog} />
-        <Route exact path="/contact" component={Contact} />
-        <Route path="*" component={() => <h1>404 - Page Not Found</h1>} />
-      </Switch>
-      <Footer />
-    </Router>
+    <>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/testimonials" element={<Testimonials />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </>
   );
 };
